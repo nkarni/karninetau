@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nitzan Karni</title>
+  <meta name="description" content="Fractional product and delivery leadership for founders and SMEs. Twenty-five years shipping software. De-facto CTO when it counts." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            paper: '#fbfbfa',
+            ink: '#0e0e0d',
+            muted: '#6b6b66',
+            line: '#e4e2dd',
+          },
+          letterSpacing: { label: '0.18em' },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; }
+    .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; }
+  </style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-line">
+    <div class="mx-auto max-w-4xl px-6 h-16 flex items-center justify-between">
+      <a href="#top" class="label font-medium">Nitzan Karni</a>
+      <nav class="hidden md:flex items-center gap-10 label text-muted">
+        <a href="#help" class="hover:text-ink transition">Practice</a>
+        <a href="#work" class="hover:text-ink transition">Work</a>
+        <a href="#building" class="hover:text-ink transition">Now</a>
+        <a href="#about" class="hover:text-ink transition">About</a>
+        <a href="#contact" class="hover:text-ink transition">Contact</a>
+      </nav>
+      <button id="navToggle" class="md:hidden p-2 -mr-2" aria-label="Open menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+      </button>
+    </div>
+    <div id="mobileNav" class="hidden md:hidden border-t border-line">
+      <nav class="mx-auto max-w-4xl px-6 py-4 flex flex-col gap-4 label text-muted">
+        <a href="#help">Practice</a>
+        <a href="#work">Work</a>
+        <a href="#building">Now</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="mx-auto max-w-4xl px-6 pt-24 pb-20 md:pt-40 md:pb-28">
+      <p class="label text-muted">Fractional product &amp; delivery leadership</p>
+      <h1 class="mt-8 text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.15] max-w-3xl tracking-tight">
+        Senior product and delivery leadership,
+        <span class="text-muted">without the full-time hire.</span>
+      </h1>
+      <p class="mt-10 text-lg text-muted max-w-2xl leading-relaxed">
+        Twenty-five years building and shipping software as a founder, product director and de-facto
+        CTO. I take on stalled or under-led products and get them moving — steering delivery, aligning
+        the business and the developers, and staying out of the weeds.
+      </p>
+      <div class="mt-12">
+        <a href="#contact" class="inline-flex items-center gap-2 text-ink border-b border-ink pb-1 hover:gap-3 transition-all">Get in touch
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Practice -->
+    <section id="help" class="border-t border-line">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:py-24 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+        <p class="label text-muted pt-1">Practice</p>
+        <div class="space-y-12">
+          <div>
+            <h3 class="text-lg font-medium">Product &amp; delivery leadership</h3>
+            <p class="mt-3 text-muted leading-relaxed max-w-xl">Priorities, roadmap and scope; the decisions that keep a product shipping. I operate at the overview level and let capable people do their work.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-medium">De-facto CTO, when it counts</h3>
+            <p class="mt-3 text-muted leading-relaxed max-w-xl">Senior technical judgment for founders without a full-time executive — architecture sense, sound decisions, and a reliable translator between business and engineering.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-medium">The human side</h3>
+            <p class="mt-3 text-muted leading-relaxed max-w-xl">Projects stall over people more often than code. As an accredited mediator, I resolve the disagreements that hold delivery back and get stakeholders aligned.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="border-t border-line">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:py-24 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+        <p class="label text-muted pt-1">Selected work</p>
+        <div class="divide-y divide-line">
+          <article class="grid grid-cols-[1fr_auto] gap-4 py-6 first:pt-0">
+            <div>
+              <h3 class="font-medium">Product &amp; Development Manager</h3>
+              <p class="text-muted">iConcept</p>
+              <p class="mt-2 text-sm text-muted leading-relaxed max-w-lg">Led product and development across client engagements — priorities, delivery coordination, and alignment between business goals and engineering.</p>
+            </div>
+            <span class="label text-muted whitespace-nowrap pt-1">2025—26</span>
+          </article>
+          <article class="grid grid-cols-[1fr_auto] gap-4 py-6">
+            <div>
+              <h3 class="font-medium">Product &amp; Delivery Lead</h3>
+              <p class="text-muted">ReadyTech Justice</p>
+              <p class="mt-2 text-sm text-muted leading-relaxed max-w-lg">Led a whole-system front-end modernisation of a court and tribunal platform — new design system and framework, WCAG accessibility uplift, and the delivery team behind it.</p>
+            </div>
+            <span class="label text-muted whitespace-nowrap pt-1">2021—23</span>
+          </article>
+          <article class="grid grid-cols-[1fr_auto] gap-4 py-6">
+            <div>
+              <h3 class="font-medium">Technical Co-founder &amp; Product Director</h3>
+              <p class="text-muted">Guided Resolution</p>
+              <p class="mt-2 text-sm text-muted leading-relaxed max-w-lg">Online dispute-resolution platform used by courts, tribunals and universities across AU, NZ and the US, with government-system integrations. Distributed teams; Westpac Business of Tomorrow.</p>
+            </div>
+            <span class="label text-muted whitespace-nowrap pt-1">2013—22</span>
+          </article>
+          <article class="grid grid-cols-[1fr_auto] gap-4 py-6">
+            <div>
+              <h3 class="font-medium">Co-founder &amp; CEO</h3>
+              <p class="text-muted">Webko</p>
+              <p class="mt-2 text-sm text-muted leading-relaxed max-w-lg">Built a web agency and a proprietary CMS / e-commerce platform, led a team of nine, and raised close to $1M in private and government funding.</p>
+            </div>
+            <span class="label text-muted whitespace-nowrap pt-1">2000—08</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Now -->
+    <section id="building" class="border-t border-line">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:py-24 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+        <p class="label text-muted pt-1">Now</p>
+        <div>
+          <h3 class="text-xl font-medium">Flywheel</h3>
+          <p class="mt-4 text-muted leading-relaxed max-w-xl">A proprietary, AI-driven algorithmic trading engine that analyses futures markets and executes automatically, with capital preservation as its first principle. Designed, built and operated solo over the past two years, in Python and Vue.js.</p>
+          <p class="mt-4 text-sm text-muted leading-relaxed max-w-xl">Evidence, for anyone wondering, that the experience is matched by current, hands-on work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="border-t border-line">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:py-24 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+        <p class="label text-muted pt-1">About</p>
+        <div>
+          <p class="text-muted leading-relaxed max-w-xl">
+            My work lives in the space between people, business and technology. What I do best is reframe
+            a contradictory, either/or problem into something a team can move on — a habit shaped as much
+            by training as a mediator and Alexander Technique teacher as by decades in software.
+          </p>
+          <div class="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-8">
+            <div>
+              <p class="label text-muted">Credentials</p>
+              <ul class="mt-3 space-y-1.5 text-sm text-muted">
+                <li>Master of IT Leadership, Deakin University</li>
+                <li>Accredited Mediator, Resolution Institute</li>
+                <li>Alexander Technique Teacher</li>
+                <li>NLP training</li>
+                <li>Guest lecturer, Victoria University Melbourne</li>
+              </ul>
+            </div>
+            <div>
+              <p class="label text-muted">Elsewhere</p>
+              <p class="mt-3 text-sm text-muted leading-relaxed">Paragliding and paramotoring, yoga, wildlife rescue, and my local repair café. Former oboist and instrument repairer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="border-t border-line">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:py-24 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+        <p class="label text-muted pt-1">Contact</p>
+        <div>
+          <h2 class="text-2xl font-medium tracking-tight">Have something that's stuck?</h2>
+          <p class="mt-3 text-muted max-w-xl">Send a note — I read everything myself.</p>
+
+          <form id="contactForm" class="mt-10 space-y-6 max-w-xl" novalidate>
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="label text-muted block mb-2">Name</label>
+                <input id="name" name="name" type="text" required class="w-full border-0 border-b border-line bg-transparent py-2 focus:border-ink outline-none transition" />
+              </div>
+              <div>
+                <label for="email" class="label text-muted block mb-2">Email</label>
+                <input id="email" name="email" type="email" required class="w-full border-0 border-b border-line bg-transparent py-2 focus:border-ink outline-none transition" />
+              </div>
+            </div>
+            <div>
+              <label for="message" class="label text-muted block mb-2">Message</label>
+              <textarea id="message" name="message" rows="4" required class="w-full border-0 border-b border-line bg-transparent py-2 focus:border-ink outline-none transition resize-none"></textarea>
+            </div>
+            <div class="hidden" aria-hidden="true">
+              <label>Company<input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <button type="submit" id="submitBtn" class="inline-flex items-center gap-2 text-ink border-b border-ink pb-1 hover:gap-3 transition-all disabled:opacity-50">Send
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+              <p id="formStatus" class="text-sm text-muted" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <div class="mt-12 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted">
+            <a href="mailto:nk@karni.net.au" class="hover:text-ink transition">nk@karni.net.au</a>
+            <a href="tel:+61402263223" class="hover:text-ink transition">+61 402 263 223</a>
+            <span>Suffolk Park, NSW</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto max-w-4xl px-6 py-8 label text-muted">&copy; <span id="year"></span> Nitzan Karni</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
