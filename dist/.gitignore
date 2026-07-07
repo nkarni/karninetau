@@ -1,0 +1,4 @@
+# Server-only secrets and debug artifacts — never commit these.
+smtp-config.php
+.contact-mail-debug
+.smtp-last-error.txt

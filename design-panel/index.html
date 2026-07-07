@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nitzan Karni — Product & Delivery Leadership</title>
+  <meta name="description" content="Senior product and delivery leadership for founders and SMEs — helping get new software built and stalled work moving again. Twenty-five years shipping products; de-facto CTO when it counts." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Inter', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            bone: '#f6f5f1',
+            ink: '#16150f',
+            soft: '#57554c',
+            rule: '#e0ddd2',
+            forest: '#2f5d50',
+            'forest-soft': '#8fb3a8',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; }
+    .font-display { font-weight: 600; letter-spacing: -0.015em; }
+    .eyebrow { font-family: Inter, sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
+    #formStatus.is-error { color: #b5442f; }
+    #formStatus.is-success { color: #8fb3a8; }
+    #formStatus.is-info { color: #8a8a80; }
+  </style>
+</head>
+<body class="bg-bone text-ink font-sans">
+
+  <div class="md:flex md:items-start">
+
+    <!-- Left panel -->
+    <aside class="bg-ink text-bone md:w-64 md:flex-shrink-0 md:h-screen md:sticky md:top-0 md:flex md:flex-col md:justify-between px-8 py-10 md:p-9">
+      <div>
+        <div class="flex items-center justify-between">
+          <a href="#top" class="font-display text-2xl leading-tight">Nitzan Karni</a>
+          <button id="navToggle" class="md:hidden p-2 -mr-2 text-bone" aria-label="Menu" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+          </button>
+        </div>
+        <p class="mt-5 eyebrow text-forest-soft">Product &amp; delivery leadership</p>
+        <p class="mt-2 text-base leading-snug text-bone/85">From first idea to shipped product.</p>
+        <p class="mt-5 text-sm text-bone/55 leading-relaxed">Available fractionally (part-time) or as an advisor.</p>
+
+        <nav class="hidden md:flex md:mt-10 md:flex-col gap-3 eyebrow text-bone/70">
+          <a href="#practice" class="hover:text-bone transition">Practice</a>
+          <a href="#work" class="hover:text-bone transition">Selected work</a>
+          <a href="#now" class="hover:text-bone transition">Now</a>
+          <a href="#about" class="hover:text-bone transition">About</a>
+          <a href="#contact" class="hover:text-bone transition">Contact</a>
+        </nav>
+
+        <div id="mobileNav" class="hidden md:hidden mt-6">
+          <nav class="flex flex-col gap-3 eyebrow text-bone/70">
+            <a href="#practice">Practice</a>
+            <a href="#work">Selected work</a>
+            <a href="#now">Now</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="hidden md:block eyebrow text-bone/50 space-y-1.5 pt-10">
+        <a href="mailto:nk@karni.net.au" class="block hover:text-bone transition">nk@karni.net.au</a>
+        <a href="tel:+61402263223" class="block hover:text-bone transition">+61 402 263 223</a>
+        <span class="block">Suffolk Park, NSW</span>
+      </div>
+    </aside>
+
+    <!-- Right content -->
+    <main id="top" class="md:flex-1 px-8 py-12 md:px-16 md:py-20">
+
+      <!-- Hero intro -->
+      <section>
+        <h1 class="font-display text-4xl md:text-6xl leading-[1.05] max-w-2xl">Senior product and delivery leadership, from first idea to shipped product.</h1>
+        <p class="mt-8 text-lg md:text-xl leading-relaxed text-soft max-w-2xl">
+          Twenty-five years building and shipping software as a founder, product director and de-facto CTO. Whether you're getting something new off the ground or unblocking work that's stalled, I take it on and get it moving — steering delivery, aligning users, business and developers, and staying out of the weeds.
+        </p>
+        <a href="#contact" class="mt-8 inline-block bg-forest text-bone text-sm font-medium px-6 py-3 rounded-full hover:bg-ink transition">Get in touch</a>
+      </section>
+
+      <!-- Practice -->
+      <section id="practice" class="mt-20 pt-12 border-t border-rule">
+        <p class="eyebrow text-forest">Practice</p>
+        <div class="mt-8 space-y-10">
+          <article>
+            <h2 class="font-display text-3xl">Product &amp; delivery leadership</h2>
+            <p class="mt-2 text-lg leading-relaxed text-soft max-w-2xl">Priorities, roadmap and scope, and the calls that keep a product shipping, setting the team up to succeed: creating the framework, context and conditions in which capable people do their best work.</p>
+          </article>
+          <article>
+            <h2 class="font-display text-3xl">De-facto CTO, when it counts</h2>
+            <p class="mt-2 text-lg leading-relaxed text-soft max-w-2xl">Senior technical judgment for founders without a full-time executive — architecture sense, sound decisions, and a reliable translator between business and engineering.</p>
+          </article>
+          <article>
+            <h2 class="font-display text-3xl">The human side</h2>
+            <p class="mt-2 text-lg leading-relaxed text-soft max-w-2xl">Projects stall over people more often than code. As an accredited mediator, I resolve the disagreements that hold delivery back and get stakeholders aligned.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Work -->
+      <section id="work" class="mt-20 pt-12 border-t border-rule">
+        <p class="eyebrow text-forest">Selected work</p>
+        <div class="mt-8 space-y-8">
+          <article>
+            <div class="flex items-baseline justify-between gap-4">
+              <h2 class="font-display text-2xl md:text-3xl">Product &amp; Development Manager</h2>
+              <span class="eyebrow text-soft whitespace-nowrap">2025—26</span>
+            </div>
+            <p class="text-forest">iConcept</p>
+            <p class="mt-2 leading-relaxed text-soft max-w-2xl">Led product and development across client engagements — priorities, delivery coordination, and alignment between business goals and engineering.</p>
+          </article>
+          <article>
+            <div class="flex items-baseline justify-between gap-4">
+              <h2 class="font-display text-2xl md:text-3xl">Front-End Delivery Lead &amp; UX Direction</h2>
+              <span class="eyebrow text-soft whitespace-nowrap">2021—23</span>
+            </div>
+            <p class="text-forest">ReadyTech Justice</p>
+            <p class="mt-2 leading-relaxed text-soft max-w-2xl">Led a whole-system front-end modernisation of a court and tribunal platform — new design system and framework, WCAG accessibility uplift, and the delivery team behind it.</p>
+          </article>
+          <article>
+            <div class="flex items-baseline justify-between gap-4">
+              <h2 class="font-display text-2xl md:text-3xl">Technical Co-founder &amp; Product Director</h2>
+              <span class="eyebrow text-soft whitespace-nowrap">2013—22</span>
+            </div>
+            <p class="text-forest">Guided Resolution</p>
+            <p class="mt-2 leading-relaxed text-soft max-w-2xl">Online dispute-resolution platform used by courts, tribunals and universities across AU, NZ and the US, with government-system integrations. Distributed teams; Westpac Business of Tomorrow.</p>
+          </article>
+          <article>
+            <div class="flex items-baseline justify-between gap-4">
+              <h2 class="font-display text-2xl md:text-3xl">Co-founder &amp; CEO</h2>
+              <span class="eyebrow text-soft whitespace-nowrap">2000—08</span>
+            </div>
+            <p class="text-forest">Webko</p>
+            <p class="mt-2 leading-relaxed text-soft max-w-2xl">Built a web agency and a proprietary CMS / e-commerce platform, led a team of nine, and raised close to $1M in private and government funding.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Now -->
+      <section id="now" class="mt-20 pt-12 border-t border-rule">
+        <p class="eyebrow text-forest">Now</p>
+        <h2 class="mt-8 font-display text-4xl">Flywheel</h2>
+        <p class="mt-4 text-lg md:text-xl leading-relaxed text-ink/90 max-w-2xl">A proprietary algorithmic trading engine with AI-assisted market analysis, that executes automatically with capital preservation as its first principle. Designed, built and operated solo over the past two years, in Python and Vue.js.</p>
+        <p class="mt-3 leading-relaxed text-soft max-w-2xl">Evidence, for anyone wondering, that the experience is matched by current, hands-on work.</p>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="mt-20 pt-12 border-t border-rule">
+        <p class="eyebrow text-forest">About</p>
+        <p class="mt-8 text-lg md:text-xl leading-relaxed text-ink/90 max-w-2xl">My work lives in the space between people, business and technology. What I do best is reframe a contradictory, either/or problem into something a team can move on — a habit shaped as much by training as a mediator and Alexander Technique teacher as by decades in software.</p>
+        <div class="mt-10 grid sm:grid-cols-2 gap-8 max-w-2xl">
+          <div>
+            <h3 class="font-display text-2xl">Credentials</h3>
+            <ul class="mt-3 space-y-1.5 text-soft">
+              <li>Master of IT Leadership, Deakin University</li>
+              <li>Accredited Mediator, Resolution Institute</li>
+              <li>Alexander Technique Teacher</li>
+              <li>NLP training</li>
+              <li>Guest lecturer, Victoria University Melbourne</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-display text-2xl">Elsewhere</h3>
+            <p class="mt-3 text-soft leading-relaxed">Paragliding and paramotoring, yoga, wildlife rescue, and my local repair café. Former oboist and instrument repairer.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="mt-20 pt-12 border-t border-rule">
+        <p class="eyebrow text-forest">Contact</p>
+        <h2 class="mt-8 font-display text-4xl">Starting something — or stuck on something?</h2>
+        <p class="mt-3 text-lg text-soft">Send a note — I read everything myself.</p>
+
+        <form id="contactForm" class="mt-8 space-y-6 max-w-xl" novalidate>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="eyebrow text-soft block mb-2">Name</label>
+              <input id="name" name="name" type="text" required class="w-full border border-rule bg-white/60 rounded-lg px-3 py-2.5 focus:border-forest outline-none transition" />
+            </div>
+            <div>
+              <label for="email" class="eyebrow text-soft block mb-2">Email</label>
+              <input id="email" name="email" type="email" required class="w-full border border-rule bg-white/60 rounded-lg px-3 py-2.5 focus:border-forest outline-none transition" />
+            </div>
+          </div>
+          <div>
+            <label for="message" class="eyebrow text-soft block mb-2">Message</label>
+            <textarea id="message" name="message" rows="4" required class="w-full border border-rule bg-white/60 rounded-lg px-3 py-2.5 focus:border-forest outline-none transition resize-none"></textarea>
+          </div>
+          <div class="hidden" aria-hidden="true"><label>Company<input name="company" type="text" tabindex="-1" autocomplete="off" /></label></div>
+          <div class="flex flex-wrap items-center gap-4">
+            <button type="submit" id="submitBtn" class="bg-forest text-bone text-sm font-medium px-6 py-3 rounded-full hover:bg-ink transition disabled:opacity-50">Send message</button>
+            <p id="formStatus" class="text-sm" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <!-- Mobile-only contact details (left panel is hidden on small screens) -->
+        <div class="md:hidden mt-10 flex flex-wrap gap-x-8 gap-y-2 eyebrow text-soft">
+          <a href="mailto:nk@karni.net.au" class="hover:text-forest transition">nk@karni.net.au</a>
+          <a href="tel:+61402263223" class="hover:text-forest transition">+61 402 263 223</a>
+          <span>Suffolk Park, NSW</span>
+        </div>
+
+        <p class="mt-16 eyebrow text-soft/70">&copy; <span id="year"></span> Nitzan Karni</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="../assets/site.js"></script>
+</body>
+</html>

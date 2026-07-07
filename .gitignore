@@ -1,0 +1,7 @@
+# macOS
+.DS_Store
+
+# Local SMTP secrets (per-build .gitignore also covers these)
+smtp-config.php
+.contact-mail-debug
+.smtp-last-error.txt

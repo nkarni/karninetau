@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nitzan Karni — Kinetic Minimal</title>
+  <meta name="description" content="Senior product and delivery leadership for founders and SMEs — helping get new software built and stalled work moving again. Twenty-five years shipping products; de-facto CTO when it counts." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            paper: '#fbfbfa',
+            ink: '#0e0e0d',
+            muted: '#6b6b66',
+            line: '#e4e2dd',
+            accent: '#2563eb',
+          },
+          letterSpacing: { label: '0.18em' },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { -webkit-font-smoothing: antialiased; }
+    .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; }
+
+    /* Word-by-word hero reveal */
+    .word { display: inline-block; overflow: hidden; vertical-align: top; }
+    .word > span { display: inline-block; transform: translateY(110%); transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+    .hero-in .word > span { transform: none; }
+
+    /* Generic reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .word > span { transform: none !important; }
+    }
+
+    /* Sticky section label */
+    .sticky-label { position: sticky; top: 6rem; align-self: start; transition: color .4s ease; }
+    .dot { display: inline-block; width: 6px; height: 6px; border-radius: 999px; background: #0e0e0d; margin-right: .5rem; transform: scale(0); transition: transform .5s ease, background-color .4s ease; }
+    .reveal.in .dot { transform: scale(1); }
+    /* Active section label (scroll-spy) */
+    .sticky-label.active { color: #0e0e0d; }
+    .sticky-label.active .dot { background: #2563eb; box-shadow: 0 0 0 4px rgba(37,99,235,.14); }
+
+    /* Magnetic button */
+    .magnetic { transition: transform .2s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+
+    /* Work rows */
+    .work-row { position: relative; transition: background-color .35s ease, padding .35s ease; }
+    .work-row::before { content: ''; position: absolute; left: 0; top: 12%; bottom: 12%; width: 2px; background: #2563eb; transform: scaleY(0); transform-origin: top; transition: transform .4s cubic-bezier(.2,.7,.2,1); border-radius: 2px; }
+    .work-row:hover { background: #f2f1ee; padding-left: 1rem; padding-right: 1rem; }
+    .work-row:hover::before { transform: scaleY(1); }
+    .work-row .idx { transition: color .35s ease, transform .35s cubic-bezier(.2,.7,.2,1); display: inline-block; }
+    .work-row:hover .idx { color: #2563eb; transform: scale(1.35); transform-origin: left top; }
+
+    .cta-arrow { transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+    .cta:hover .cta-arrow { transform: translateX(5px); }
+
+    /* Scroll progress bar */
+    #progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; transform: scaleX(0); transform-origin: left; background: #2563eb; }
+
+    /* Hero cursor spotlight */
+    .spotlight { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .4s ease; background: radial-gradient(340px circle at var(--mx,50%) var(--my,50%), rgba(37,99,235,.10), transparent 70%); }
+    .spotlight.on { opacity: 1; }
+
+    /* Availability status pill */
+    .pulse { position: relative; display: inline-block; width: 7px; height: 7px; border-radius: 999px; background: #2563eb; }
+    .pulse::after { content: ''; position: absolute; inset: 0; border-radius: 999px; background: #2563eb; animation: pulse 2.2s ease-out infinite; }
+    @keyframes pulse { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(3.2); opacity: 0; } }
+
+    /* Hero underline draw */
+    .draw path { stroke: #2563eb; stroke-width: 2.5; fill: none; stroke-dasharray: 320; stroke-dashoffset: 320; transition: stroke-dashoffset 1s cubic-bezier(.6,.1,.2,1) .4s; }
+    .reveal.in .draw path { stroke-dashoffset: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      #progress { transform: scaleX(1) !important; }
+      .spotlight { display: none; }
+      .pulse::after { animation: none; }
+      .draw path { transition: none; stroke-dashoffset: 0; }
+      .work-row::before { transition: none; }
+    }
+  </style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-line">
+    <div class="mx-auto max-w-4xl px-6 h-16 flex items-center justify-between">
+      <a href="#top" class="font-mono text-xs font-medium tracking-tight">NK<span class="text-muted">/</span>Nitzan Karni</a>
+      <div id="progress"></div>
+      <nav class="hidden md:flex items-center gap-8 font-mono text-[0.7rem] uppercase tracking-label text-muted">
+        <a href="#help" class="hover:text-ink transition">Practice</a>
+        <a href="#work" class="hover:text-ink transition">Work</a>
+        <a href="#building" class="hover:text-ink transition">Now</a>
+        <a href="#about" class="hover:text-ink transition">About</a>
+        <a href="#contact" class="hover:text-ink transition">Contact</a>
+      </nav>
+      <button id="navToggle" class="md:hidden p-2 -mr-2" aria-label="Open menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+      </button>
+    </div>
+    <div id="mobileNav" class="hidden md:hidden border-t border-line">
+      <nav class="mx-auto max-w-4xl px-6 py-4 flex flex-col gap-4 font-mono text-[0.7rem] uppercase tracking-label text-muted">
+        <a href="#help">Practice</a>
+        <a href="#work">Work</a>
+        <a href="#building">Now</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section id="heroSection" class="relative overflow-hidden">
+      <div class="spotlight" id="spotlight"></div>
+      <div class="relative mx-auto max-w-5xl px-6 pt-24 pb-20 md:pt-40 md:pb-28">
+      <div class="reveal">
+        <p class="font-mono text-[0.7rem] uppercase tracking-label text-muted">Product &amp; delivery leadership</p>
+      </div>
+      <h1 id="hero" class="mt-8 text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.12] tracking-tight">
+        <span class="block" data-line>Senior product and delivery leadership,</span>
+        <span class="block text-muted text-2xl sm:text-3xl md:text-4xl font-normal mt-1" data-line>from first idea to shipped product.</span>
+      </h1>
+      <p class="mt-10 text-lg text-muted max-w-3xl leading-relaxed reveal">
+        Twenty-five years building and shipping software as a founder, product director and de-facto
+        CTO. Whether you're getting something new off the ground or unblocking work that's stalled, I
+        take it on and <span class="relative inline-block text-ink font-medium">get it moving<svg class="draw absolute left-0 -bottom-1 w-full" height="10" viewBox="0 0 120 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 6 C 30 2, 90 2, 118 6" /></svg></span> — steering delivery, aligning users, business and developers, and
+        staying out of the weeds.
+      </p>
+      <p class="mt-6 inline-flex items-center gap-2.5 font-mono text-[0.7rem] uppercase tracking-label text-muted reveal">
+        <span class="pulse"></span>Available fractionally (part-time) or as an advisor
+      </p>
+      <div class="mt-12 reveal">
+        <a href="#contact" class="cta magnetic inline-flex items-center gap-2 text-paper bg-ink px-5 py-3 rounded-full text-sm font-medium">Get in touch
+          <svg class="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      </div>
+    </section>
+
+    <!-- Practice -->
+    <section id="help" class="border-t border-line">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:py-24 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+        <p class="font-mono text-[0.7rem] uppercase tracking-label text-muted sticky-label reveal"><span class="dot"></span>Practice</p>
+        <div class="space-y-12">
+          <div class="reveal">
+            <h3 class="text-lg font-semibold">Product &amp; delivery leadership</h3>
+            <p class="mt-3 text-muted leading-relaxed max-w-xl">Priorities, roadmap and scope, and the calls that keep a product shipping, setting the team up to succeed: creating the framework, context and conditions in which capable people do their best work.</p>
+          </div>
+          <div class="reveal">
+            <h3 class="text-lg font-semibold">De-facto CTO, when it counts</h3>
+            <p class="mt-3 text-muted leading-relaxed max-w-xl">Senior technical judgment for founders without a full-time executive — architecture sense, sound decisions, and a reliable translator between business and engineering.</p>
+          </div>
+          <div class="reveal">
+            <h3 class="text-lg font-semibold">The human side</h3>
+            <p class="mt-3 text-muted leading-relaxed max-w-xl">Projects stall over people more often than code. As an accredited mediator, I resolve the disagreements that hold delivery back and get stakeholders aligned.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="border-t border-line">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:py-24 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+        <p class="font-mono text-[0.7rem] uppercase tracking-label text-muted sticky-label reveal"><span class="dot"></span>Selected work</p>
+        <div class="divide-y divide-line">
+          <article class="work-row grid grid-cols-[auto_1fr_auto] gap-4 py-6 first:pt-0 reveal">
+            <span class="idx font-mono text-xs text-muted pt-1">01</span>
+            <div>
+              <h3 class="font-medium">Product &amp; Development Manager</h3>
+              <p class="text-muted">iConcept</p>
+              <p class="mt-2 text-sm text-muted leading-relaxed max-w-lg">Led product and development across client engagements — priorities, delivery coordination, and alignment between business goals and engineering.</p>
+            </div>
+            <span class="font-mono text-xs text-muted whitespace-nowrap pt-1">2025—26</span>
+          </article>
+          <article class="work-row grid grid-cols-[auto_1fr_auto] gap-4 py-6 reveal">
+            <span class="idx font-mono text-xs text-muted pt-1">02</span>
+            <div>
+              <h3 class="font-medium">Front-End Delivery Lead &amp; UX Direction</h3>
+              <p class="text-muted">ReadyTech Justice</p>
+              <p class="mt-2 text-sm text-muted leading-relaxed max-w-lg">Led a whole-system front-end modernisation of a court and tribunal platform — new design system and framework, WCAG accessibility uplift, and the delivery team behind it.</p>
+            </div>
+            <span class="font-mono text-xs text-muted whitespace-nowrap pt-1">2021—23</span>
+          </article>
+          <article class="work-row grid grid-cols-[auto_1fr_auto] gap-4 py-6 reveal">
+            <span class="idx font-mono text-xs text-muted pt-1">03</span>
+            <div>
+              <h3 class="font-medium">Technical Co-founder &amp; Product Director</h3>
+              <p class="text-muted">Guided Resolution</p>
+              <p class="mt-2 text-sm text-muted leading-relaxed max-w-lg">Online dispute-resolution platform used by courts, tribunals and universities across AU, NZ and the US, with government-system integrations. Distributed teams; Westpac Business of Tomorrow.</p>
+            </div>
+            <span class="font-mono text-xs text-muted whitespace-nowrap pt-1">2013—22</span>
+          </article>
+          <article class="work-row grid grid-cols-[auto_1fr_auto] gap-4 py-6 reveal">
+            <span class="idx font-mono text-xs text-muted pt-1">04</span>
+            <div>
+              <h3 class="font-medium">Co-founder &amp; CEO</h3>
+              <p class="text-muted">Webko</p>
+              <p class="mt-2 text-sm text-muted leading-relaxed max-w-lg">Built a web agency and a proprietary CMS / e-commerce platform, led a team of nine, and raised close to $1M in private and government funding.</p>
+            </div>
+            <span class="font-mono text-xs text-muted whitespace-nowrap pt-1">2000—08</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Now -->
+    <section id="building" class="border-t border-line">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:py-24 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+        <p class="font-mono text-[0.7rem] uppercase tracking-label text-muted sticky-label reveal"><span class="dot"></span>Now</p>
+        <div class="reveal">
+          <h3 class="text-xl font-semibold">Flywheel</h3>
+          <p class="mt-4 text-muted leading-relaxed max-w-xl">A proprietary algorithmic trading engine with AI-assisted market analysis, that executes automatically with capital preservation as its first principle. Designed, built and operated solo over the past two years, in Python and Vue.js.</p>
+          <p class="mt-4 text-sm text-muted leading-relaxed max-w-xl">Evidence, for anyone wondering, that the experience is matched by current, hands-on work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="border-t border-line">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:py-24 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+        <p class="font-mono text-[0.7rem] uppercase tracking-label text-muted sticky-label reveal"><span class="dot"></span>About</p>
+        <div class="reveal">
+          <p class="text-muted leading-relaxed max-w-xl">
+            My work lives in the space between people, business and technology. What I do best is reframe
+            a contradictory, either/or problem into something a team can move on — a habit shaped as much
+            by training as a mediator and Alexander Technique teacher as by decades in software.
+          </p>
+          <div class="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-8">
+            <div>
+              <p class="font-mono text-[0.7rem] uppercase tracking-label text-muted">Credentials</p>
+              <ul class="mt-3 space-y-1.5 text-sm text-muted">
+                <li>Master of IT Leadership, Deakin University</li>
+                <li>Accredited Mediator, Resolution Institute</li>
+                <li>Alexander Technique Teacher</li>
+                <li>NLP training</li>
+                <li>Guest lecturer, Victoria University Melbourne</li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-mono text-[0.7rem] uppercase tracking-label text-muted">Elsewhere</p>
+              <p class="mt-3 text-sm text-muted leading-relaxed">Paragliding and paramotoring, yoga, wildlife rescue, and my local repair café. Former oboist and instrument repairer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="border-t border-line">
+      <div class="mx-auto max-w-4xl px-6 py-16 md:py-24 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
+        <p class="font-mono text-[0.7rem] uppercase tracking-label text-muted sticky-label reveal"><span class="dot"></span>Contact</p>
+        <div class="reveal">
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Starting something — or stuck on something?</h2>
+          <p class="mt-3 text-muted max-w-xl">Send a note — I read everything myself.</p>
+
+          <form id="contactForm" class="mt-10 space-y-6 max-w-xl" novalidate>
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="font-mono text-[0.7rem] uppercase tracking-label text-muted block mb-2">Name</label>
+                <input id="name" name="name" type="text" required class="w-full border-0 border-b border-line bg-transparent py-2 focus:border-ink outline-none transition" />
+              </div>
+              <div>
+                <label for="email" class="font-mono text-[0.7rem] uppercase tracking-label text-muted block mb-2">Email</label>
+                <input id="email" name="email" type="email" required class="w-full border-0 border-b border-line bg-transparent py-2 focus:border-ink outline-none transition" />
+              </div>
+            </div>
+            <div>
+              <label for="message" class="font-mono text-[0.7rem] uppercase tracking-label text-muted block mb-2">Message</label>
+              <textarea id="message" name="message" rows="4" required class="w-full border-0 border-b border-line bg-transparent py-2 focus:border-ink outline-none transition resize-none"></textarea>
+            </div>
+            <div class="hidden" aria-hidden="true">
+              <label>Company<input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <button type="submit" id="submitBtn" class="cta magnetic inline-flex items-center gap-2 text-paper bg-ink px-5 py-3 rounded-full text-sm font-medium disabled:opacity-50">Send
+                <svg class="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+              <p id="formStatus" class="text-sm text-muted" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <div class="mt-12 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted">
+            <a href="mailto:nk@karni.net.au" class="hover:text-ink transition">nk@karni.net.au</a>
+            <a href="tel:+61402263223" class="hover:text-ink transition">+61 402 263 223</a>
+            <span>Suffolk Park, NSW</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto max-w-4xl px-6 py-8 font-mono text-[0.7rem] uppercase tracking-label text-muted">&copy; <span id="year"></span> Nitzan Karni</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav
+    const navToggle = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    navToggle?.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('hidden') === false;
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+    mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileNav.classList.add('hidden');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Word-by-word hero split
+    const hero = document.getElementById('hero');
+    hero.querySelectorAll('[data-line]').forEach((line) => {
+      const words = line.textContent.split(' ');
+      line.textContent = '';
+      words.forEach((w, i) => {
+        const wrap = document.createElement('span');
+        wrap.className = 'word';
+        const inner = document.createElement('span');
+        inner.textContent = w;
+        inner.style.transitionDelay = (i * 45) + 'ms';
+        wrap.appendChild(inner);
+        line.appendChild(wrap);
+        if (i < words.length - 1) line.appendChild(document.createTextNode(' '));
+      });
+    });
+    requestAnimationFrame(() => setTimeout(() => hero.classList.add('hero-in'), 120));
+
+    // Generic reveals
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = el.dataset.delay ? Number(el.dataset.delay) : 0;
+          setTimeout(() => el.classList.add('in'), delay);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    document.querySelectorAll('.space-y-12 > .reveal, .divide-y > .reveal').forEach((el, i) => {
+      el.dataset.delay = String((i % 4) * 80);
+    });
+
+    // Magnetic buttons (pointer devices only)
+    const finePointer = window.matchMedia('(pointer:fine)').matches;
+    if (finePointer) {
+      document.querySelectorAll('.magnetic').forEach((btn) => {
+        const strength = 0.35;
+        btn.addEventListener('mousemove', (e) => {
+          const r = btn.getBoundingClientRect();
+          const x = e.clientX - (r.left + r.width / 2);
+          const y = e.clientY - (r.top + r.height / 2);
+          btn.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+      });
+    }
+
+    // Scroll progress bar
+    const progress = document.getElementById('progress');
+    function updateProgress() {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const p = max > 0 ? h.scrollTop / max : 0;
+      progress.style.transform = `scaleX(${p})`;
+    }
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    // Scroll-spy: light up nav links + section dots
+    const navLinks = Array.from(document.querySelectorAll('header nav a'));
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        entry.target.querySelector('.sticky-label')?.classList.add('active');
+        navLinks.forEach((a) => {
+          const on = a.getAttribute('href') === '#' + id;
+          a.classList.toggle('text-ink', on);
+          a.classList.toggle('text-muted', !on);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('main section[id]').forEach((s) => spy.observe(s));
+
+    // Hero cursor spotlight (pointer devices only)
+    if (finePointer) {
+      const heroSection = document.getElementById('heroSection');
+      const spotlight = document.getElementById('spotlight');
+      heroSection?.addEventListener('mouseenter', () => spotlight.classList.add('on'));
+      heroSection?.addEventListener('mouseleave', () => spotlight.classList.remove('on'));
+      heroSection?.addEventListener('mousemove', (e) => {
+        const r = heroSection.getBoundingClientRect();
+        spotlight.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        spotlight.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    }
+
+    // Contact form (front-end only demo)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (form.company.value) return;
+      if (!form.checkValidity()) { status.textContent = 'Please complete the required fields.'; return; }
+      status.textContent = 'Thanks — I\'ll be in touch shortly.';
+      form.reset();
+    });
+  </script>
+</body>
+</html>

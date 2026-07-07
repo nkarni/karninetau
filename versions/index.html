@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nitzan Karni — site versions</title>
+  <meta name="robots" content="noindex" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --paper:#fbfbfa; --ink:#0e0e0d; --muted:#6b6b66; --line:#e4e2dd; --accent:#ea580c; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 5rem 1.5rem; }
+    .label { font-family:"IBM Plex Mono",monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.18em; color:var(--muted); }
+    h1 { font-size: 2rem; font-weight: 700; letter-spacing:-.01em; margin:.75rem 0 0; }
+    p.lead { color:var(--muted); margin-top:.75rem; line-height:1.6; }
+    .grid { margin-top: 2.5rem; display:grid; gap:1rem; }
+    .card { display:block; text-decoration:none; color:inherit; border:1px solid var(--line); border-radius:16px; padding:1.5rem; transition: border-color .25s ease, transform .25s ease; background:#fff; }
+    .card:hover { border-color:var(--ink); transform: translateY(-2px); }
+    .card .top { display:flex; align-items:center; gap:.75rem; }
+    .badge { font-family:"IBM Plex Mono",monospace; font-size:.7rem; padding:.2rem .55rem; border-radius:999px; background:var(--ink); color:var(--paper); }
+    .badge.work { background:var(--accent); }
+    .card h2 { font-size:1.15rem; margin:0; font-weight:600; }
+    .card p { color:var(--muted); margin:.6rem 0 0; line-height:1.55; font-size:.95rem; }
+    .card .go { display:inline-block; margin-top:1rem; font-size:.85rem; font-weight:600; color:var(--accent); }
+    ul.changes { margin:.6rem 0 0; padding-left:1.1rem; color:var(--muted); font-size:.9rem; line-height:1.55; }
+    footer { margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--line); color:var(--muted); font-size:.8rem; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="label">Development preview</p>
+    <h1>Nitzan Karni — site versions</h1>
+    <p class="lead">Working previews while the site is in development. v1 is the frozen reference; new changes happen in v2. Open a version, then use browser back to compare.</p>
+
+    <div class="grid">
+      <a class="card" href="v1/index.html">
+        <div class="top">
+          <span class="badge">v1</span>
+          <h2>Reference — frozen</h2>
+        </div>
+        <p>Snapshot of the version we reviewed. Left untouched so we can always revert or compare against it.</p>
+        <span class="go">Open v1 &rarr;</span>
+      </a>
+
+      <a class="card" href="v2/index.html">
+        <div class="top">
+          <span class="badge work">v2</span>
+          <h2>Working — in progress</h2>
+        </div>
+        <p>Where changes are applied. Currently addressing technical and accessibility items:</p>
+        <ul class="changes">
+          <li>Open Graph / Twitter share tags</li>
+          <li>No-JS contact form fallback</li>
+          <li>en-AU language + small fixes</li>
+          <li>Higher-contrast body text</li>
+          <li>Visible keyboard focus states</li>
+          <li>Proper heading structure (section labels as headings)</li>
+        </ul>
+        <span class="go">Open v2 &rarr;</span>
+      </a>
+    </div>
+
+    <footer>Not for publishing — this index is <code>noindex</code> and lives outside the deployable build.</footer>
+  </main>
+</body>
+</html>
