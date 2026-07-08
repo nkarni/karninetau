@@ -1,6 +1,9 @@
 # macOS
 .DS_Store
 
+# Node deps (local build tools, e.g. tools/og)
+node_modules/
+
 # Local SMTP secrets (per-build .gitignore also covers these)
 smtp-config.php
 .contact-mail-debug
