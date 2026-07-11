@@ -17,7 +17,15 @@ const body = '#4d4c46';
 const muted = '#6b6b66';
 const line = '#e4e2dd';
 const accent = '#ea580c';
-const ff = 'Helvetica Neue, Helvetica, Arial, sans-serif';
+const ff = 'Inter';
+
+const fontsDir = path.join(__dirname, 'node_modules/@expo-google-fonts/inter');
+const fontFiles = [
+  path.join(fontsDir, '400Regular/Inter_400Regular.ttf'),
+  path.join(fontsDir, '500Medium/Inter_500Medium.ttf'),
+  path.join(fontsDir, '600SemiBold/Inter_600SemiBold.ttf'),
+  path.join(fontsDir, '700Bold/Inter_700Bold.ttf'),
+];
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
@@ -48,7 +56,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
 
 const resvg = new Resvg(svg, {
   fitTo: { mode: 'width', value: 1200 },
-  font: { loadSystemFonts: true, defaultFontFamily: 'Helvetica Neue' },
+  font: { fontFiles, loadSystemFonts: false, defaultFontFamily: 'Inter' },
   background: paper,
 });
 fs.writeFileSync(outPath, resvg.render().asPng());
