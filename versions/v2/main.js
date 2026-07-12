@@ -4,6 +4,16 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  // Reveal phone number client-side so it isn't in the static HTML for scrapers.
+  var phoneLink = document.getElementById('phoneLink');
+  if (phoneLink && phoneLink.dataset.tel) {
+    try {
+      var num = atob(phoneLink.dataset.tel);
+      phoneLink.textContent = num;
+      phoneLink.href = 'tel:' + num.replace(/\s+/g, '');
+    } catch (e) { /* leave the "Phone" fallback linking to #contact */ }
+  }
+
   // Mobile nav
   var navToggle = document.getElementById('navToggle');
   var mobileNav = document.getElementById('mobileNav');
