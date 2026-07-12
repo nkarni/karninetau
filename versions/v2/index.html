@@ -49,28 +49,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
-          },
-          colors: {
-            paper: '#fbfbfa',
-            ink: '#0e0e0d',
-            muted: '#6b6b66',
-            line: '#e4e2dd',
-            accent: '#ea580c',
-            body: '#4d4c46',
-          },
-          letterSpacing: { label: '0.18em' },
-        },
-      },
-    };
-  </script>
+  <link rel="stylesheet" href="styles.css">
   <style>
     body { -webkit-font-smoothing: antialiased; }
     .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; }
@@ -114,12 +93,16 @@
     .work-row:hover::before { transform: scaleY(1); }
     .work-row .idx { transition: color .35s ease, transform .35s cubic-bezier(.2,.7,.2,1); display: inline-block; }
     .work-row:hover .idx { color: #ea580c; transform: scale(1.35); transform-origin: left top; }
+    /* Same fix as .practice-item: cancel the first row's top padding (py-6) so it lines up with the section label */
+    .work-row:first-child { margin-top: -1.75rem; }
 
     /* Practice items — same hover language as work rows */
     .practice-item { position: relative; padding: .75rem 0; transition: background-color .35s ease, padding .35s ease; }
     .practice-item::before { content: ''; position: absolute; left: 0; top: 14%; bottom: 14%; width: 2px; background: #ea580c; transform: scaleY(0); transform-origin: top; transition: transform .4s cubic-bezier(.2,.7,.2,1); border-radius: 2px; }
     .practice-item:hover { background: #f2f1ee; padding-left: 1rem; padding-right: 1rem; }
     .practice-item:hover::before { transform: scaleY(1); }
+    /* First item's top padding + line-height leading pushes its heading below the section label */
+    .practice-item:first-child { margin-top: -1rem; }
 
     .cta-arrow { transition: transform .35s cubic-bezier(.2,.7,.2,1); }
     .cta:hover .cta-arrow { transform: translateX(5px); }
@@ -201,7 +184,7 @@
 
       <div class="mt-10 grid md:grid-cols-[1fr_auto] items-start gap-8 md:gap-16">
         <div>
-          <p class="text-lg text-body leading-relaxed reveal">
+          <p class="text-base text-body leading-relaxed reveal">
             Twenty-five years building and shipping software as a founder, product director and de-facto
             CTO. Whether you're getting something new off the ground or unblocking work that's stuck, I
             take it on and <span class="relative inline-block text-ink font-medium">get it moving<svg class="draw absolute left-0 -bottom-1 w-full" height="10" viewBox="0 0 120 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 6 C 30 2, 90 2, 118 6" /></svg></span>, steering delivery, aligning users, business and developers, and
@@ -255,11 +238,11 @@
       <div class="mx-auto max-w-4xl px-6 py-10 md:py-14 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
         <h2 class="font-mono text-[0.7rem] uppercase tracking-label text-muted sticky-label reveal"><span class="dot"></span>Selected work</h2>
         <div class="divide-y divide-line">
-          <article class="work-row grid grid-cols-[auto_1fr_auto] gap-4 py-6 first:pt-0 reveal">
+          <article class="work-row grid grid-cols-[auto_1fr_auto] gap-4 py-6 reveal">
             <span class="idx font-mono text-xs text-muted pt-1">01</span>
             <div>
               <h3 class="font-medium">Product &amp; Development Manager</h3>
-              <p class="text-muted">iConcept</p>
+              <p class="text-sm text-muted">iConcept</p>
               <p class="mt-2 text-sm text-body leading-relaxed max-w-lg">Led product and development across client engagements — priorities, delivery coordination, and alignment between business goals and engineering.</p>
             </div>
             <span class="font-mono text-xs text-muted whitespace-nowrap pt-1">2025—26</span>
@@ -268,7 +251,7 @@
             <span class="idx font-mono text-xs text-muted pt-1">02</span>
             <div>
               <h3 class="font-medium">Front-End Delivery Lead &amp; UX Direction</h3>
-              <p class="text-muted">ReadyTech Justice</p>
+              <p class="text-sm text-muted">ReadyTech Justice</p>
               <p class="mt-2 text-sm text-body leading-relaxed max-w-lg">Led a whole-system front-end modernisation of a court and tribunal platform — new design system and framework, WCAG accessibility uplift, and the delivery team behind it.</p>
             </div>
             <span class="font-mono text-xs text-muted whitespace-nowrap pt-1">2021—23</span>
@@ -277,8 +260,8 @@
             <span class="idx font-mono text-xs text-muted pt-1">03</span>
             <div>
               <h3 class="font-medium">Technical Co-founder &amp; Product Director</h3>
-              <p class="text-muted">Guided Resolution</p>
-              <p class="mt-2 text-sm text-body leading-relaxed max-w-lg">Online dispute-resolution platform used by courts, tribunals and universities across AU, NZ and the US, with government-system integrations. Distributed teams; Westpac Business of Tomorrow.</p>
+              <p class="text-sm text-muted">Guided Resolution</p>
+              <p class="mt-2 text-sm text-body leading-relaxed max-w-lg">Online dispute-resolution platform used by courts, tribunals and universities across AU, NZ and the US, with government-system integrations. Distributed teams; winner of ‘Westpac Business of Tomorrow’.</p>
             </div>
             <span class="font-mono text-xs text-muted whitespace-nowrap pt-1">2013—22</span>
           </article>
@@ -286,7 +269,7 @@
             <span class="idx font-mono text-xs text-muted pt-1">04</span>
             <div>
               <h3 class="font-medium">Co-founder &amp; CEO</h3>
-              <p class="text-muted">Webko</p>
+              <p class="text-sm text-muted">Webko</p>
               <p class="mt-2 text-sm text-body leading-relaxed max-w-lg">Built a web agency and a proprietary CMS / e-commerce platform, led a team of nine, and raised close to $1M in private and government funding.</p>
             </div>
             <span class="font-mono text-xs text-muted whitespace-nowrap pt-1">2000—08</span>
@@ -299,14 +282,14 @@
     <section id="references" class="border-t border-line">
       <div class="mx-auto max-w-4xl px-6 py-10 md:py-14 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
         <h2 class="font-mono text-[0.7rem] uppercase tracking-label text-muted sticky-label reveal"><span class="dot"></span>References</h2>
-        <div class="space-y-10">
+        <div class="space-y-10 -mt-[3px]">
           <!-- Draft endorsements — pending each referee's approval before publishing -->
           <figure class="reveal">
             <blockquote class="text-base leading-relaxed text-body italic">
               “Nitzan took real pressure off me. He turned a chaotic backlog into a clear roadmap the business could rally behind, took over running the dev team, and brought a calm transparency to how we worked — then went on to lead the design and delivery of an entirely new product. Remarkably, he did all of it part-time.”
             </blockquote>
             <figcaption class="mt-4 text-sm">
-              <span class="font-medium text-ink">Simon Cusack</span><span class="text-muted"> — CTO, <a href="https://iconcept.net.au/" target="_blank" rel="noopener" class="underline underline-offset-2 decoration-line hover:text-accent transition">iConcept</a></span>
+              <span class="font-medium text-ink">Simon Cusack</span><span class="text-ink"> — CTO, <a href="https://iconcept.net.au/" target="_blank" rel="noopener" class="underline underline-offset-2 decoration-line hover:text-accent transition">iConcept</a></span>
             </figcaption>
           </figure>
           <!-- Awaiting referee approval before publishing — do not delete. Peter Nanayakara and Andrew Woolcock endorsements held back for now.
@@ -315,7 +298,7 @@
               “Nitzan is the person you point in a direction and simply trust to get it done. He led the design, UX and delivery of a major front-end rebuild of a platform used daily across the justice sector — and quietly handled the essentials most people forget: accessibility to contract standard, load testing, and architecture. Clear, reliable, and self-directed.”
             </blockquote>
             <figcaption class="mt-4 text-sm">
-              <span class="font-medium text-ink">Peter Nanayakara</span><span class="text-muted"> — former Head of <a href="https://readytech.io/what-we-do/justice/overview" target="_blank" rel="noopener" class="underline underline-offset-2 decoration-line hover:text-accent transition">ReadyTech Justice</a></span>
+              <span class="font-medium text-ink">Peter Nanayakara</span><span class="text-ink"> — former Head of <a href="https://readytech.io/what-we-do/justice/overview" target="_blank" rel="noopener" class="underline underline-offset-2 decoration-line hover:text-accent transition">ReadyTech Justice</a></span>
             </figcaption>
           </figure>
           <figure class="reveal">
@@ -323,7 +306,7 @@
               “Nitzan led the design and build of our product from an idea in our heads to working reality — a compliance platform for multi-site retail businesses. He translated what we imagined into workflows that genuinely made sense, coordinated the whole effort with unusual clarity, and pushed back when he needed to — always with a better, more practical alternative. Precise, communicative, and efficient from start to finish.”
             </blockquote>
             <figcaption class="mt-4 text-sm">
-              <span class="font-medium text-ink">Andrew Woolcock</span><span class="text-muted"> — [role to confirm]</span>
+              <span class="font-medium text-ink">Andrew Woolcock</span><span class="text-ink"> — [role to confirm]</span>
             </figcaption>
           </figure>
           -->
@@ -332,7 +315,7 @@
               “For fifteen years Nitzan has been my technical lead on our most demanding projects — from large, integrated campaigns spanning app, web and advertising, to complex custom tools like a visual product builder that generates instant quotes. Whether he does the work himself or steers a dev team, it lands on time and on budget — and he's my trusted sounding board for product and business strategy. I bring him in when it has to be right.”
             </blockquote>
             <figcaption class="mt-4 text-sm">
-              <span class="font-medium text-ink">Adrian Nelson</span><span class="text-muted"> — Founder, <a href="https://utopiacreative.com/" target="_blank" rel="noopener" class="underline underline-offset-2 decoration-line hover:text-accent transition">Utopia Creative</a></span>
+              <span class="font-medium text-ink">Adrian Nelson</span><span class="text-ink"> — Founder, <a href="https://utopiacreative.com/" target="_blank" rel="noopener" class="underline underline-offset-2 decoration-line hover:text-accent transition">Utopia Creative</a></span>
             </figcaption>
           </figure>
         </div>
@@ -343,7 +326,7 @@
     <section id="building" class="border-t border-line">
       <div class="mx-auto max-w-4xl px-6 py-10 md:py-14 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
         <h2 class="font-mono text-[0.7rem] uppercase tracking-label text-muted sticky-label reveal"><span class="dot"></span>Now</h2>
-        <div class="reveal">
+        <div class="reveal -mt-1">
           <h3 class="text-xl font-semibold">Flywheel</h3>
           <p class="mt-4 text-muted leading-relaxed max-w-xl">A proprietary algorithmic trading engine with AI-assisted market analysis, that executes automatically with capital preservation as its first principle. Designed and built part-time over the past two years, in Python and Vue.js.</p>
           <p class="mt-4 text-body leading-relaxed max-w-xl">It's how I keep my technical judgment sharp and current — and it grounds the advisory, board and delivery work I do for others.</p>
@@ -355,7 +338,7 @@
     <section id="about" class="border-t border-line">
       <div class="mx-auto max-w-4xl px-6 py-10 md:py-14 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
         <h2 class="font-mono text-[0.7rem] uppercase tracking-label text-muted sticky-label reveal"><span class="dot"></span>About</h2>
-        <div class="reveal">
+        <div class="reveal -mt-[3px]">
           <p class="text-body leading-relaxed max-w-xl">
             My work lives in the space between people, business and technology. What I do best is reframe
             a seemingly binary ('either/or') problem into something a team can move on — a habit shaped as much
@@ -388,7 +371,7 @@
     <section id="contact" class="border-t border-line">
       <div class="mx-auto max-w-4xl px-6 py-10 md:py-14 grid md:grid-cols-[160px_1fr] gap-8 md:gap-16">
         <h2 class="font-mono text-[0.7rem] uppercase tracking-label text-muted sticky-label reveal"><span class="dot"></span>Contact</h2>
-        <div class="reveal">
+        <div class="reveal -mt-[5px]">
           <h3 class="text-2xl md:text-3xl font-semibold tracking-tight">Starting something — or stuck on something?</h3>
           <p class="mt-3 text-body max-w-xl">Send a note — I read everything myself.</p>
 

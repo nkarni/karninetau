@@ -21,6 +21,7 @@ ZIP="${ROOT}/build/karni-net-au.zip"
 # Files/dirs to publish (paths relative to versions/v2).
 ITEMS=(
   index.html
+  styles.css
   main.js
   contact.php
   smtp-config.example.php

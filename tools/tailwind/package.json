@@ -1,0 +1,11 @@
+{
+  "name": "karninetau-tailwind",
+  "private": true,
+  "description": "Production Tailwind build for versions/v2 (replaces the CDN).",
+  "scripts": {
+    "build": "tailwindcss -c tailwind.config.js -i input.css -o ../../versions/v2/styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
