@@ -8,3 +8,6 @@ node_modules/
 smtp-config.php
 .contact-mail-debug
 .smtp-last-error.txt
+
+# Deploy build output (tools/deploy/build.sh)
+build/
