@@ -48,6 +48,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -410,6 +411,7 @@
               <label>Website<input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
               <label>Company<input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
             </div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAD0C-uUGrHRTA-88" data-theme="light"></div>
             <div class="flex flex-wrap items-center gap-4 pt-2">
               <button type="submit" id="submitBtn" class="cta magnetic inline-flex items-center gap-2 text-paper bg-ink px-5 py-3 rounded-full text-sm font-medium disabled:opacity-50">Send
                 <svg class="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>

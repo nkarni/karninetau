@@ -177,6 +177,8 @@
       })
       .finally(function () {
         submitBtn.disabled = false;
+        // Turnstile tokens are single-use — refresh for any follow-up submit.
+        if (window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
       });
   });
 })();
